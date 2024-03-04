@@ -1,0 +1,66 @@
+<div class="min-h-screen bg-gray-100 flex items-center justify-center">
+  <div class="max-w-2xl w-full mx-auto p-8 bg-white shadow-lg rounded-lg">
+    <h2 class="text-2xl font-semibold mb-1"> BIENVENIDO</h2>
+    <p class="text-gray-700 mb-6"> INGRESA TUS DATOS</p>
+
+    <form [formGroup]="formLogin" (ngSubmit)="loginpage()">
+
+
+
+      <div class="relative mb-3">
+        <label class="block text-sm font-medium text-gray-700">Nombre de usuario:</label>
+        <input
+          type="text"
+          placeholder="ej. Revillacks"
+          class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          formControlName="username"
+          />
+          @if (validateController("username")){
+            <small class="text-red-500">{{validateController('username')}}</small>
+          }
+      </div>
+
+
+
+      <div class="relative mb-3">
+        <label class="block text-sm font-medium text-gray-700">Contraseña:</label>
+        <div class="mt-1 flex items-center relative">
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            placeholder="ej. rev123"
+            class="w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            formControlName="password"
+          />
+
+          <button (click)="toggleShowPassword();$event.preventDefault()" class="absolute inset-y-0 right-0 pr-3 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-400" *ngIf="!showPassword; else eyeClosed" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M10 2C5.58 2 1.73 5.11 0 10c1.73 4.89 5.58 8 10 8s8.27-3.11 10-8c-1.73-4.89-5.58-8-10-8zM10 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8a3 3 0 100 6 3 3 0 000-6z" />
+            </svg>
+            <ng-template #eyeClosed>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-200" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10 2C5.58 2 1.73 5.11 0 10c1.73 4.89 5.58 8 10 8s8.27-3.11 10-8c-1.73-4.89-5.58-8-10-8zM2 10c1.67 2.91 4.93 5 8 5s6.33-2.09 8-5c-1.67-2.91-4.93-5-8-5S3.67 7.09 2 10zm8 3a3 3 0 100-6 3 3 0 000 6z" />
+              </svg>
+            </ng-template>
+          </button>
+        </div>
+        @if (validateController("password")){
+          <small class="text-red-500">{{validateController('password')}}</small>
+        }
+      </div>
+
+
+        <div class="flex justify-center mt-5">
+          <button type="submit"
+            class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none">
+            Ingresar
+          </button>
+        </div>
+
+        <div class="flex justify-end mt-2">
+          <a routerLink="/auth/register" class="text-blue-500 italic underline"> Registrate aquí</a>
+        </div>
+
+    </form>
+
+  </div>
+</div>
