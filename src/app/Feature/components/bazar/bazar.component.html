@@ -1,0 +1,68 @@
+
+    <form [formGroup]="formBazar" (ngSubmit)="save()">
+
+      <div class="relative mb-3">
+        <label class="block text-sm font-medium text-gray-700">Nombre: </label>
+        <input
+          type="text"
+          placeholder="ej. Playera Polo Aeropostale "
+          autocomplete="on"
+          class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          formControlName="nombre"
+          />
+          @if (validateController ("nombre") ){
+            <small class="text-red-500">{{validateController('nombre')}}</small>
+          }
+      </div>
+
+      <div class="relative mb-3">
+        <label class="block text-sm font-medium text-gray-700">Imagen:</label>
+        <input
+          type="text"
+          placeholder="Imagen"
+          class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          formControlName="urlimg"
+          />
+          @if ( validateController('urlimg')){
+            <small class="text-red-500">{{validateController('urlimg')}}</small>
+          }
+
+      </div>
+
+
+      <div class="relative mb-3">
+        <label class="block text-sm font-medium text-gray-700">Precio:</label>
+        <input
+        type="text"
+        placeholder="ej. 234"
+        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+        formControlName="precio"
+        />
+        @if ( validateController('precio')){
+          <small class="text-red-500">{{validateController('precio')}}</small>
+        }
+      </div>
+
+      <div class="relative mb-3">
+        <label class="block text-sm font-medium text-gray-700">Precio Venta: </label>
+        <input
+        type="text"
+        placeholder="ej. 345"
+        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+        formControlName="precioventa"
+        />
+        @if ( validateController('precioventa')){
+          <small class="text-red-500">{{validateController('precioventa')}}</small>
+        }
+
+      </div>
+
+
+        <div class="flex justify-center">
+          <button type="submit"
+            class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none">
+            Guardar
+          </button>
+        </div>
+
+    </form>

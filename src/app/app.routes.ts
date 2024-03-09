@@ -16,10 +16,14 @@ export const routes: Routes = [
     }
   ]
   },
-  /* {
+  {
+    path:'sistemabazar',
+    loadComponent: () => import ('./Feature/pages/sistemabazar/sistemabazar.component')
+  },
+  {
     path:'home',
     loadComponent: () => import ('./Feature/home/home.component'),
-  }, */
+  },
   {
     path:'**',
     pathMatch: 'full',
